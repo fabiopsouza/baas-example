@@ -1,0 +1,47 @@
+<ion-view view-title="Envios">
+  <ion-nav-bar class="bar-balanced"></ion-nav-bar>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-android-cancel" ng-click="clear()"></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    
+  	<div class="card">
+	  <div class="item">
+
+	    <div class="list">
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">CPF</span>
+		    <input type="text" placeholder="999.999.999-99" ng-model="movimentacao.Cpf" ui-br-cpf-mask ng-required="true">
+		  </label>
+
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Nome do Titular</span>
+		    <input type="text" placeholder="Fulano" ng-model="movimentacao.NomeTitular">
+		  </label>
+
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Número da Conta</span>
+		    <input id="test" type="number" placeholder="12345" ng-model="movimentacao.NumeroConta" ng-maxlength="5">
+		  </label>
+
+
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Total de Créditos</span>
+		    <input type="text" placeholder="R$ 1.000,00" ng-model="movimentacao.TotalCreditos" ui-money-mask>
+		  </label>
+
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Total de Débitos</span>
+		    <input type="text" placeholder="R$ 1.000,00" ng-model="movimentacao.TotalDebitos" ui-money-mask>
+		  </label>
+		</div>
+	  </div>
+	</div>
+	
+	<button class="button button-full button-balanced" ng-disabled="isSendDisabled" ng-click="send()">
+		<i class="icon ion-ios-paperplane"></i> Enviar
+	</button>
+
+  </ion-content>
+</ion-view>

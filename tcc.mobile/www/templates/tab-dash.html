@@ -1,0 +1,65 @@
+<ion-view view-title="Status">
+  <ion-nav-bar class="bar-balanced"></ion-nav-bar>
+  
+  <ion-content>
+  	<ion-refresher pulling-text="Puxe para atualizar..." on-refresh="fillChartAndPanels()"></ion-refresher>
+
+	<div class="row panels-status-count">
+    	<div class="col">
+    		<div class="card">
+		  		<div class="item item-divider">
+		            Pendentes
+		        </div>
+		        <div class="item">
+		        	<span class="card-strong">
+		        		{{chart.data[0]}}	
+		        	</span>
+		        	<span class="card-weak">
+		        		{{percents[0]}} %
+		        	</span>
+		        </div>
+		    </div>
+    	</div>
+    	<div class="col">
+    		<div class="card">
+		  		<div class="item item-divider">
+		            Aprovados
+		        </div>
+		        <div class="item">
+		        	<span class="card-strong">
+		        		{{chart.data[1]}}	
+		        	</span>
+		        	<span class="card-weak">
+		        		{{percents[1]}} %
+		        	</span>
+		        </div>
+		    </div>
+    	</div>
+    	<div class="col">
+    		<div class="card">
+		  		<div class="item item-divider">
+		            Reprovados
+		        </div>
+		        <div class="item">
+		        	<span class="card-strong">
+		        		{{chart.data[2]}}	
+		        	</span>
+		        	<span class="card-weak">
+		        		{{percents[2]}} %
+		        	</span>
+		        </div>
+		    </div>
+    	</div>
+    </div>
+
+  	<div class="card">
+        <div class="item item-divider">
+            Status
+        </div>
+        <div class="item item-text-wrap">
+            <canvas id="pie" class="chart chart-pie" chart-data="chart.data" chart-labels="chart.labels" chart-options="chart.options" chart-colors="chart.colors"></canvas>
+        </div>
+    </div>
+
+  </ion-content>
+</ion-view>

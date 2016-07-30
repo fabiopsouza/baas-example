@@ -1,0 +1,32 @@
+/* ALL */
+a{
+	text-decoration: none;
+}
+
+/* CARD */
+.card-strong{
+	font-size: 1.6em;
+}
+
+.card-weak{
+	font-size: 0.8em;	
+	color: #999;
+}
+
+/* MOVIMENTACOES */
+.content-movimentacoes{
+	margin-top: 35px;
+}
+
+.icon-status{
+	font-size: 0.5em;
+}
+
+/* DASH */
+.panels-status-count .item{
+	padding: 10px;
+}
+
+.panels-status-count .item-divider{
+	font-size: 0.9em;
+}

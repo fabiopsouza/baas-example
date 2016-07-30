@@ -1,0 +1,55 @@
+<ion-view view-title="Movimentações">
+	<ion-nav-bar class="bar-balanced"></ion-nav-bar>
+  	
+   	<div class="bar bar-subheader">
+		<div class="button-bar">
+		  <a class="button button-royal {{selectedStatus != 1 ? 'button-outline' : ''}}" ng-click="filter(1)">Pendentes</a>
+		  <a class="button button-balanced {{selectedStatus != 2 ? 'button-outline' : ''}}" ng-click="filter(2)">Aprovados</a>
+		  <a class="button button-assertive {{selectedStatus != 3 ? 'button-outline' : ''}}" ng-click="filter(3)">Reprovados</a>
+		</div>
+	</div>
+	
+	<ion-content class="content-movimentacoes">
+
+		<ion-refresher pulling-text="Puxe para atualizar..." on-refresh="getAll()"></ion-refresher>
+
+		<div class="card" ng-repeat="item in movimentacoes">
+			<a href="#/tab/movimentacoes/{{item.Id}}">			
+				<div class="item">
+					<div class="row">
+					  <div class="col col-50">
+					  	<span class="card-strong">
+					  		<!-- TODO criar diretiva -->
+					  		<i class="icon ion-record royal icon-status" ng-if="item.StatusMovimentacaoId == 1"></i>
+					  		<i class="icon ion-record balanced icon-status" ng-if="item.StatusMovimentacaoId == 2"></i>
+					  		<i class="icon ion-record assertive icon-status" ng-if="item.StatusMovimentacaoId == 3"></i>
+					  		{{ item.NomeTitular.length < TreePercentOfScreenWidth ? item.NomeTitular : item.NomeTitular.substring(0,TreePercentOfScreenWidth) + '...' }}
+				  		</span>
+					  </div>
+
+					  <div class="col balanced">
+					  	<span style="float: right;">
+					  		<i class="icon ion-arrow-up-a"></i>
+					  		R$ {{item.TotalDebitos}}
+					  	</span>
+					  </div>
+					</div>
+
+					<div class="row">
+						<div class="col col-50">
+							<span class="card-weak">Conta: {{item.NumeroConta}}</span>
+						</div>
+
+						<div class="col assertive">
+							<span style="float: right;">
+								<i class="icon ion-arrow-down-a"></i>
+								R$ {{item.TotalCreditos}}	
+							</span>
+						</div>				
+					</div>
+
+				</div>	
+			</a>  
+		</div>
+	</ion-content>
+</ion-view>
