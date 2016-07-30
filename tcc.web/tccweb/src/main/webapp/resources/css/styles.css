@@ -1,0 +1,19 @@
+.menu-bar{
+	position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.table-movimentacoes{
+	margin-top: 60px;
+}
+
+.loading{
+	display: none;
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+}

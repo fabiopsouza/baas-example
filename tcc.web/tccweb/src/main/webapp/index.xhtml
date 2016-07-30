@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+<h:body>
+	<h:form id="frm">
+		<p:growl id="msg" showDetail="true" autoUpdate="true" />
+
+		<p:toolbar styleClass="menu-bar">
+			<f:facet name="right">
+				<p:selectOneMenu value="#{movimentacaoBean.status}">
+					<f:selectItem itemLabel="Todos os Status" itemValue="" />
+					<f:selectItems value="#{movimentacaoBean.statusList}" var="item"
+						itemValue="#{item.id}" itemLabel="#{item.descricao}" />
+
+					<p:ajax event="change" update="tblMovimentacao" />
+				</p:selectOneMenu>
+			</f:facet>
+		</p:toolbar>
+
+		<p:dataTable id="tblMovimentacao" widgetVar="tblMovimentacao"
+			var="item" value="#{movimentacaoBean.list}" rows="10"
+			paginator="true" paginatorPosition="bottom"
+			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="5,10,15" emptyMessage="Nenhuma movimentação"
+			styleClass="table-movimentacoes">
+
+			<p:column headerText="CPF" sortBy="#{item.Cpf}"
+				filterBy="#{item.Cpf}"
+				style="width:200px; max-width:200px; text-align: center">
+				<h:outputText value="#{movimentacaoBean.getCpfFormatted(item.Cpf)}" />
+			</p:column>
+
+			<p:column headerText="Titular" sortBy="#{item.NomeTitular}"
+				filterBy="#{item.NomeTitular}">
+				<h:outputText value="#{item.NomeTitular}" />
+			</p:column>
+
+			<p:column headerText="Conta" sortBy="#{item.NumeroConta}"
+				filterBy="#{item.NumeroConta}" style="width:200px max-width:200px">
+				<h:outputText value="#{item.NumeroConta}" />
+			</p:column>
+
+			<p:column headerText="Créditos" sortBy="#{item.TotalCreditos}"
+				filterBy="#{item.TotalCreditos}"
+				style="width: 110px; max-width:110px">
+				<h:outputText value="#{item.TotalCreditos}" style="float:right" />
+			</p:column>
+
+			<p:column headerText="Débitos" sortBy="#{item.TotalDebitos}"
+				filterBy="#{item.TotalDebitos}" style="width:110px; max-width:110px">
+				<h:outputText value="#{item.TotalDebitos}" style="float:right" />
+			</p:column>
+
+			<p:column headerText="Status" id="columnStatus"
+				sortBy="#{movimentacaoBean.getStatusDescricao(item.StatusMovimentacaoId)}"
+				filterBy="#{movimentacaoBean.getStatusDescricao(item.StatusMovimentacaoId)}"
+				style="width:150px; max-width:150px; text-align: center">
+				<h:outputText
+					value="#{movimentacaoBean.getStatusDescricao(item.StatusMovimentacaoId)}"
+					style="color: #{movimentacaoBean.getStatusCor(item.StatusMovimentacaoId)}" />
+			</p:column>
+
+			<p:column style="width:100px; max-width:70px; text-align:center">
+				<p:commandButton id="btnAprovar"
+					actionListener="#{movimentacaoBean.aprovar(item.Id)}"
+					disabled="#{item.StatusMovimentacaoId != 1}" icon="fa fa-check"
+					update="tblMovimentacao" />
+				<p:tooltip for="btnAprovar" value="Aprovar" position="top" />
+
+				<p:commandButton id="btnReprovar"
+					actionListener="#{movimentacaoBean.reprovar(item.Id)}"
+					disabled="#{item.StatusMovimentacaoId != 1}" icon="fa fa-times"
+					update="tblMovimentacao" />
+				<p:tooltip for="btnReprovar" value="Reprovar" position="top" />
+
+				<p:commandButton id="btnExcluir"
+					actionListener="#{movimentacaoBean.excluir(item.Id)}"
+					disabled="#{item.StatusMovimentacaoId eq 2}" icon="fa fa-trash-o"
+					update="tblMovimentacao" />
+				<p:tooltip for="btnExcluir" value="Excluir" position="top" />
+
+			</p:column>
+		</p:dataTable>
+
+		<p:graphicImage class="loading" name="img/loading.gif" />
+		<p:ajaxStatus onstart="$('.loading').show();" onsuccess="$('.loading').hide();" />
+	</h:form>
+</h:body>
+</html>
