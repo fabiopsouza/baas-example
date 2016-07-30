@@ -1,0 +1,11 @@
+C:\workroot\bitbucket\TCC\tcc.core\tcc.core.repository\bin\Release\tcc.core.repository.dll.config
+C:\workroot\bitbucket\TCC\tcc.core\tcc.core.repository\bin\Release\tcc.core.repository.dll
+C:\workroot\bitbucket\TCC\tcc.core\tcc.core.repository\bin\Release\tcc.core.repository.pdb
+C:\workroot\bitbucket\TCC\tcc.core\tcc.core.repository\bin\Release\EntityFramework.dll
+C:\workroot\bitbucket\TCC\tcc.core\tcc.core.repository\bin\Release\EntityFramework.SqlServer.dll
+C:\workroot\bitbucket\TCC\tcc.core\tcc.core.repository\bin\Release\EntityFramework.xml
+C:\workroot\bitbucket\TCC\tcc.core\tcc.core.repository\bin\Release\EntityFramework.SqlServer.xml
+C:\workroot\bitbucket\TCC\tcc.core\tcc.core.repository\obj\Release\tcc.core.repository.Migrations.initial.resources
+C:\workroot\bitbucket\TCC\tcc.core\tcc.core.repository\obj\Release\tcc.core.repository.csproj.GenerateResource.Cache
+C:\workroot\bitbucket\TCC\tcc.core\tcc.core.repository\obj\Release\tcc.core.repository.dll
+C:\workroot\bitbucket\TCC\tcc.core\tcc.core.repository\obj\Release\tcc.core.repository.pdb
