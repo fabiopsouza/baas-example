@@ -12,6 +12,11 @@ starter.controller('EnvioCtrl', function($scope, $http, MovimentacaoService, $ro
 
   $scope.send = function(){
 
+    if($scope.movimentacao.Cpf == undefined){
+      $scope.showAlert('Falha', 'CPF inválido!');
+      return;
+    }
+
     if($scope.movimentacao.Cpf == undefined ||
       $scope.movimentacao.NomeTitular == undefined ||
       $scope.movimentacao.NumeroConta == undefined ||
@@ -21,11 +26,6 @@ starter.controller('EnvioCtrl', function($scope, $http, MovimentacaoService, $ro
       $scope.showAlert('Falha', 'Favor preencher todos os campos!');
       return;
     }
-
-  	if($scope.movimentacao.Cpf == undefined){
-  		$scope.showAlert('Falha', 'CPF inválido!');
-  		return;
-  	}
 
   	//Pendente de aprovação
   	$scope.movimentacao.StatusMovimentacaoId = 1;

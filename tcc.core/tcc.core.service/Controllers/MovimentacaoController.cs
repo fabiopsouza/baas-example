@@ -25,7 +25,7 @@ namespace tcc.core.service.Controllers
             }
             catch (Exception ex)
             {
-                resp = ExceptionHandler.handle(ex);
+                resp = ExceptionHandler.Handle(ex);
             }
 
             return resp;
@@ -45,7 +45,7 @@ namespace tcc.core.service.Controllers
             }
             catch (Exception ex)
             {
-                resp = ExceptionHandler.handle(ex);
+                resp = ExceptionHandler.Handle(ex);
             }
 
             return resp;
@@ -65,7 +65,7 @@ namespace tcc.core.service.Controllers
             }
             catch (Exception ex)
             {
-                resp = ExceptionHandler.handle(ex);
+                resp = ExceptionHandler.Handle(ex);
             }
 
             return resp;
@@ -90,7 +90,7 @@ namespace tcc.core.service.Controllers
             }
             catch (Exception ex)
             {
-                resp = ExceptionHandler.handle(ex);
+                resp = ExceptionHandler.Handle(ex);
             }
 
             return resp;
@@ -116,7 +116,7 @@ namespace tcc.core.service.Controllers
             }
             catch (Exception ex)
             {
-                resp = ExceptionHandler.handle(ex);
+                resp = ExceptionHandler.Handle(ex);
             }
 
             return resp;
@@ -149,7 +149,7 @@ namespace tcc.core.service.Controllers
             }
             catch (Exception ex)
             {
-                resp = ExceptionHandler.handle(ex);
+                resp = ExceptionHandler.Handle(ex);
             }
 
             return resp;
@@ -175,7 +175,7 @@ namespace tcc.core.service.Controllers
             }
             catch (Exception ex)
             {
-                resp = ExceptionHandler.handle(ex);
+                resp = ExceptionHandler.Handle(ex);
             }
 
             return resp;

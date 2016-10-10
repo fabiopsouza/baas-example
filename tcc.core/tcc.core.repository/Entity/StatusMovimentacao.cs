@@ -4,6 +4,12 @@ namespace tcc.core.repository.Entity
 {
     public class StatusMovimentacao
     {
+        public int Id { get; set; }
+
+        public string Descricao { get; set; }
+
+        public ICollection<Movimentacao> Movimentacoes { get; set; }
+        
         public StatusMovimentacao()
         {
             Movimentacoes = new List<Movimentacao>();
@@ -14,11 +20,5 @@ namespace tcc.core.repository.Entity
             Movimentacoes = new List<Movimentacao>();
             Descricao = descricao;
         }
-
-        public int Id { get; set; }
-
-        public string Descricao { get; set; }
-        
-        public ICollection<Movimentacao> Movimentacoes { get; set; }
     }
 }

@@ -28,6 +28,18 @@ services.factory('MovimentacaoService', function($http) {
       });
     },
 
+    statusCount: function(success){
+      $http.get(api + 'movimentacao/status/counts')
+      .success(function(response) {
+
+        if(response.IsSuccess)
+          success(response.Data);
+      })
+      .error(function(error){
+        console.log(error);
+      });
+    },
+
     find: function(id, success){
       $http.get(api + 'movimentacao/' + id)
       .success(function(response) {
@@ -68,19 +80,8 @@ services.factory('MovimentacaoService', function($http) {
         function(error){
           $scope.showAlert('Erro', 'Houve um erro remover movimentacao', error);
         });
-    },
-
-    statusCount: function(success){
-      $http.get(api + 'movimentacao/status/counts')
-      .success(function(response) {
-
-        if(response.IsSuccess)
-          success(response.Data);
-      })
-      .error(function(error){
-        console.log(error);
-      });
     }
   };
 
 });
+

@@ -5,7 +5,7 @@ namespace tcc.core.service.Models
 {
     public class ExceptionHandler
     {
-        public static Response handle(Exception ex)
+        public static Response Handle(Exception ex)
         {
             StringBuilder error = new StringBuilder();
 
