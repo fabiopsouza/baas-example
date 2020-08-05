@@ -1,6 +1,6 @@
 <h1>TCC</h1>
 
-<p>Prototype to illustrate Backend as a Service (BaaS) Application in my term paper</p>
+<p>Backend as a Service (BaaS) prototype of my term paper</p>
 
 <ul>
 	<li>
